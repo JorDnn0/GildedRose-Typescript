@@ -27,4 +27,11 @@ describe('Gilded Rose', function () {
         expect(items[1].quality).to.equal(startingQuality);
     });
 
+    it('Quality never negative', function() {
+        const startingQuality = 0;
+        const gildedRose = new GildedRose([new Item('foo', 10, startingQuality),]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).to.equal(startingQuality);
+    });
+
 });
