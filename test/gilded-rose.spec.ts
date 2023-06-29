@@ -16,5 +16,15 @@ describe('Gilded Rose', function () {
         expect(items[0].quality).to.greaterThan(startingQuality);
     });
 
-});
+    it('Quality never exceeds 50', function() {
+        const startingQuality = 50;
+        const gildedRose = new GildedRose([
+            new Item('Aged Brie', 10, startingQuality),
+            new Item('Backstage passes to a TAFKAL80ETC concert', 10, startingQuality)
+        ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).to.equal(startingQuality);
+        expect(items[1].quality).to.equal(startingQuality);
+    });
 
+});
