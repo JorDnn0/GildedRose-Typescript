@@ -9,4 +9,12 @@ describe('Gilded Rose', function () {
         expect(items[0].quality).to.equal(80);
     });
 
+    it('Aged Brie quality increases', function() {
+        const startingQuality = 5;
+        const gildedRose = new GildedRose([ new Item('Aged Brie', 10, startingQuality) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).to.greaterThan(startingQuality);
+    });
+
 });
+
