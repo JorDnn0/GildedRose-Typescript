@@ -33,7 +33,7 @@ export class GildedRose {
 
             //Backstage passes case
             }else if(this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert'){
-                if (this.items[i].sellIn < 0) {
+                if (this.items[i].sellIn <= 0) {
                     this.items[i].quality = 0
                 } else if (this.items[i].quality < 50) {
                     if (this.items[i].sellIn <= 5) {
