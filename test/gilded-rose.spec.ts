@@ -34,4 +34,18 @@ describe('Gilded Rose', function () {
         expect(items[0].quality).to.equal(startingQuality);
     });
 
+    it('Backstage passes rules', function() {
+        const startingQuality = 10;
+        const gildedRose = new GildedRose([
+            new Item('Backstage passes to a TAFKAL80ETC concert', 10, startingQuality),
+            new Item('Backstage passes to a TAFKAL80ETC concert', 5, startingQuality),
+            new Item('Backstage passes to a TAFKAL80ETC concert', 0, startingQuality),
+        ]);
+        const items = gildedRose.updateQuality();
+
+        expect(items[0].quality).to.equal(startingQuality+2);
+        expect(items[1].quality).to.equal(startingQuality+3);
+        expect(items[2].quality).to.equal(0);
+    });
+
 });
